@@ -10,6 +10,8 @@ pipeline {
         NAMESPACE_PREFIX="holden"
         GITLAB_DOMAIN = "www.github.com"
         GITLAB_USERNAME = "rht-ccsd"
+        GIT_EMAIL = "matt.riensch@gmail.com"
+        GIT_USER = "Cabur"
 
         PIPELINES_NAMESPACE = "${NAMESPACE_PREFIX}-ci-cd"
         APP_NAME = "todolist"
@@ -101,8 +103,8 @@ pipeline {
                 success {
                     echo "Git tagging"
                     sh'''
-                        git config --global user.email "jenkins@jmail.com"
-                        git config --global user.name "jenkins-ci"
+                        git config --global user.email "${GIT_EMAIL}"
+                        git config --global user.name "${GIT_USER}"
                         git tag -a ${JENKINS_TAG} -m "JENKINS automated commit"
                         git push https://${GIT_CREDENTIALS_USR}:${GIT_CREDENTIALS_PSW}@${GITLAB_DOMAIN}/${GITLAB_USERNAME}/${APP_NAME}.git --tags
                     '''
