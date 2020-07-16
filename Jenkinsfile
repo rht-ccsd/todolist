@@ -9,7 +9,7 @@ pipeline {
         // Global Vars
         NAMESPACE_PREFIX="holden"
         GITLAB_DOMAIN = "www.github.com"
-        GITLAB_USERNAME = "cabur"
+        GITLAB_USERNAME = "hfenner"
 
         PIPELINES_NAMESPACE = "${NAMESPACE_PREFIX}-ci-cd"
         APP_NAME = "todolist"
