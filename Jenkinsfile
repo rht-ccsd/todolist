@@ -91,27 +91,6 @@ pipeline {
                 sh 'npm run publish'
                 stash 'source'
             }
-            // Post can be used both on individual stages and for the entire build.
-            post {
-                always {
-                    archive "**"
-                    // ADD TESTS REPORTS HERE
-            
-                    // publish html
-
-                }
-                success {
-                    echo "Git tagging"
-                    sh'''
-                        git config --global user.email "${GIT_EMAIL}"
-                        git config --global user.name "${GIT_USER}"
-                        git tag -a ${JENKINS_TAG} -m "JENKINS automated commit"
-                        git push https://${GIT_CREDENTIALS_USR}:${GIT_CREDENTIALS_PSW}@${GITLAB_DOMAIN}/${GITLAB_USERNAME}/${APP_NAME}.git --tags
-                    '''
-                }
-                failure {
-                    echo "FAILURE"
-                }
             }
         }
 
