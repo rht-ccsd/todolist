@@ -91,7 +91,6 @@ pipeline {
                 sh 'npm run publish'
                 stash 'source'
             }
-            }
         }
 
         stage("node-bake") {
