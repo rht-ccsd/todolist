@@ -1,5 +1,8 @@
 ---
 app_name: todolist
+ci_cd_namespace: demo-ccsd-cicd
+dev_namespace: demo-ccsd-dev
+test_namespace: demo-ccsd-test
 
 build:
   NAME: '{{ app_name }}'
